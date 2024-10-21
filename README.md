@@ -1,5 +1,3 @@
-Aqui está um exemplo de um arquivo `README.md` que você pode usar para o seu projeto CRUD com Flask e HTML:
-
 ```markdown
 # CRUD com Python e HTML
 

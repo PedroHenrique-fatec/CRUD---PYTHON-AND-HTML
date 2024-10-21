@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Chama o arquivo css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <title>CRUD - PYTHON E HTML</title>
+</head>
+<body>
+    <div class="title">
+        <h1>CRUD - PYTHON E HTML</h1>
+    </div>
+
+    <!-- Declara um form com action de /submit, que significa que o formulário seja enviado para este caminho(url) -->
+    <!-- Define o método como POST -->
+    <form action="/submit" method="POST">
+        <div class="input-group">
+            <label for="nome">Insira seu nome: </label>
+            <input type="text" name="nome" id="nome" required />
+        </div>
+        <div class="input-group">
+            <label for="idade">Insira sua idade: </label>
+            <input type="number" name="idade" id="idade" required />
+        </div>
+        <div class="input-group">
+            <label for="cpf">Insira seu CPF: </label>
+            <input type="text" name="cpf" id="cpf" required />
+        </div>
+
+        <div class="button_enviar">
+            <input type="submit" value="Cadastrar" />
+        </div>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>  
+                <th>CPF</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Permite acessar o vetor 'banco_de_dados_pessoas' -->
+            <!-- Permitindo assim que possamos iterar por ele -->
+            {% for pessoa in banco_de_dados_pessoas %}
+            <tr>
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.idade }}</td>
+                <td>{{ pessoa.cpf }}</td>
+            </tr>
+            <!-- Define o fim do laço -->
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
